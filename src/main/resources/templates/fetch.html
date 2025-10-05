@@ -108,6 +108,25 @@
                 align-items: center;
             }
         }
+        .back-button {
+          display: inline-block;
+          margin-top: 20px;
+          background: linear-gradient(45deg, #444, #777);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          text-decoration: none;
+          font-size: 16px;
+          transition: all 0.3s ease;
+     }
+
+     .back-button:hover {
+    background: linear-gradient(45deg, #666, #999);
+    transform: translateY(-2px);
+}
+            
     </style>
 </head>
 <body>
@@ -125,9 +144,13 @@
                     <a th:href="${movie.trailerLink}" target="_blank"><button>Watch Trailer</button></a>
                     <a th:href="@{/update(id=${movie.id})}"><button>Edit</button></a>
                     <a th:href="'/delet?id='+${movie.id}"><button>Remove</button></a>
+                  
+                    
                 </div>
             </div>
         </div>
     </div>
+      <a href="/" class="back-button">⬅ Back to Home</a>
+    
 </body>
 </html>

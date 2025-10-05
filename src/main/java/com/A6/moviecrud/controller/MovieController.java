@@ -58,27 +58,6 @@ public class MovieController {
 		
 	}
 	
-//	@GetMapping("/update")
-//	public String loadUpdateForm(@RequestParam long id, ModelMap map) {
-//	   
-//	    Movie movie = repository.findById(id).orElseThrow(() -> new RuntimeException("Movie not found with id: " + id));
-//	                            
-//	    map.put("movie", movie);   
-//	    return "update.html";     
-//
-//	}
-	
-	
-	
-//	@PostMapping("/update")
-//	public String updateMovie(Movie movie, ModelMap map) {
-//	   
-//	    repository.save(movie);
-//	    map.put("message", "Movie updated successfully");
-//	    return "main.html";
-//	}
-	
-	
 	
 	
 	@GetMapping("/update")
