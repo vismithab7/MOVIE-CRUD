@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+    <style>
+        /* Full-page background image */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1950&q=80'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Form container */
+        .form-container {
+            background: rgba(0, 0, 0, 0.7); /* semi-transparent background */
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], input[type="radio"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff8533;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Movie Record</h1>
+        <form action="/insert" method="post">
+            <input type="text" name="name" placeholder="Enter Movie Name" required><br>
+            <input type="text" name="description" placeholder="Enter Movie Description" required><br>
+            <input type="text" name="imageLink" placeholder="Enter Movie Image Link" required><br>
+            <input type="text" name="trailerLink" placeholder="Enter Movie Trailer Link" required><br>
+            <input type="text" name="genre" placeholder="Enter Movie Genre" required><br>
+
+            <label>Rating:</label>
+            <input type="radio" name="rating" value="1" required>1
+            <input type="radio" name="rating" value="2">2
+            <input type="radio" name="rating" value="3">3
+            <input type="radio" name="rating" value="4">4
+            <input type="radio" name="rating" value="5">5
+            <br><br>
+
+            <button type="submit">Add Movie</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Movie</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Update Movie</h1>
+        <form th:action="@{/update}" method="post">
+            <input type="hidden" name="id" th:value="${movie.id}"/>
+
+            <input type="text" name="name" th:value="${movie.name}" placeholder="Movie Name"><br><br>
+            <input type="text" name="description" th:value="${movie.description}" placeholder="Description"><br><br>
+            <input type="text" name="genre" th:value="${movie.genre}" placeholder="Genre"><br><br>
+            <input type="text" name="imageLink" th:value="${movie.imageLink}" placeholder="Image Link"><br><br>
+            <input type="text" name="trailerLink" th:value="${movie.trailerLink}" placeholder="Trailer Link"><br><br>
+
+            Rating:
+            <input type="radio" name="rating" value="1" th:checked="${movie.rating==1}">1
+            <input type="radio" name="rating" value="2" th:checked="${movie.rating==2}">2
+            <input type="radio" name="rating" value="3" th:checked="${movie.rating==3}">3
+            <input type="radio" name="rating" value="4" th:checked="${movie.rating==4}">4
+            <input type="radio" name="rating" value="5" th:checked="${movie.rating==5}">5
+            <br><br>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>
