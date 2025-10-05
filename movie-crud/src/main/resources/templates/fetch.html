@@ -4,34 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            /* Cinematic background with gradient overlay */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: white;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+        }
+
+        .movies-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .movie-card {
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            width: 240px; /* slightly narrower */
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 220px; /* reduced height */
+            object-fit: cover;
+        }
+
+        .movie-content {
+            padding: 15px;
+        }
+
+        .movie-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .movie-content p {
+            font-size: 14px;
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .movie-content .genre, .movie-content .rating {
+            font-weight: bold;
+        }
+
+        .movie-content .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .movie-content button {
+            flex: 1;
+            background: linear-gradient(45deg, #ff6600, #ff8533);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .movie-content button:hover {
+            background: linear-gradient(45deg, #ff8533, #ffb366);
+            transform: translateY(-2px);
+        }
+
+        .movie-content a {
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .movies-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .back-button {
+          display: inline-block;
+          margin-top: 20px;
+          background: linear-gradient(45deg, #444, #777);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          text-decoration: none;
+          font-size: 16px;
+          transition: all 0.3s ease;
+     }
+
+     .back-button:hover {
+    background: linear-gradient(45deg, #666, #999);
+    transform: translateY(-2px);
+}
+            
+    </style>
 </head>
 <body>
-        <div align="center">
-            <h1>Movie Records</h1>
+    <h1>Movie Records</h1>
 
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Genre</th>
-                    <th>Image</th>
-                    <th>Trailer</th>
-                    <th>Ratings</th>
-                    <th>Action</th>
-                </tr>
-                <tr th:each="movie:${movies}">
-                    <td th:text="${movie.name}"></td>
-                    <td th:text="${movie.description}">Description</td>
-                    <td th:text="${movie.genre}">Genre</td>
-                    <td> <img height="100px" width="100px" th:src="${movie.imageLink}" alt=""> </td>
-                    <td><a th:href="${movie.trailerLink}" target="_blank"><button>Click</button></a></iframe> </td>
-                    <td th:text="${movie.rating}">Ratings</td>
-                    <td>
-                        <a th:href="@{/update(id=${movie.id})}"><button>Edit</button></a>
-                        <a th:href="@{/delet(id=${movie.id})}" ><button>remove</button></a>
-                    </td>
-                </tr>
-            </table>
+    <div class="movies-container">
+        <div class="movie-card" th:each="movie : ${movies}">
+            <img th:src="${movie.imageLink}" alt="Movie Poster">
+            <div class="movie-content">
+                <h3 th:text="${movie.name}">Movie Name</h3>
+                <p th:text="${movie.description}">Movie Description</p>
+                <p class="genre" th:text="'Genre: ' + ${movie.genre}">Genre</p>
+                <p class="rating" th:text="'Rating: ' + ${movie.rating}">Ratings</p>
+                <div class="buttons">
+                    <a th:href="${movie.trailerLink}" target="_blank"><button>Watch Trailer</button></a>
+                    <a th:href="@{/update(id=${movie.id})}"><button>Edit</button></a>
+                    <a th:href="'/delet?id='+${movie.id}"><button>Remove</button></a>
+                  
+                    
+                </div>
+            </div>
         </div>
+    </div>
+      <a href="/" class="back-button">⬅ Back to Home</a>
+    
 </body>
 </html>
