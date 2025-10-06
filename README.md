@@ -1,6 +1,6 @@
 # 🎬 Movie CRUD Application
 
-A simple **Spring Boot + JSP + Hibernate** CRUD web application built using **Eclipse IDE**.  
+A simple **Spring Boot + Thymeleaf + Hibernate** CRUD web application built using **Eclipse IDE**.  
 This project allows users to **Add, View, Update, and Delete Movie Records** from a database.
 
 ---
@@ -35,12 +35,10 @@ movie-crud/
 ├── src/main/java/com/A6/moviecrud/
 │ ├── controller/ # Controllers for handling web requests
 │ ├── entity/ # JPA Entity classes (e.g., Movie.java)
-│ ├── repository/ # Repository interfaces
-│ └── service/ # Business logic layer
 │
 ├── src/main/resources/
 │ ├── application.properties # DB configuration
-│ └── templates/ or /webapp/WEB-INF/jsp/ # JSP pages
+│ └── templates/ 
 │
 ├── pom.xml # Maven dependencies
 └── README.md
