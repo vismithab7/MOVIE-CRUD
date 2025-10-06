@@ -16,15 +16,16 @@ This project allows users to **Add, View, Update, and Delete Movie Records** fro
 ---
 
 ## 🧰 Tech Stack
-| Category | Technologies |
-|-----------|---------------|
-| **Frontend** | JSP, HTML, CSS, Bootstrap |
-| **Backend** | Java, Spring Boot / Spring MVC |
-| **Database** | MySQL |
-| **ORM** | Hibernate / JPA |
-| **IDE** | Eclipse |
-| **Build Tool** | Maven |
-| **Server** | Apache Tomcat |
+| Category       | Technologies                    |
+| -------------- | ------------------------------- |
+| **Frontend**   | Thymeleaf, HTML, CSS, Bootstrap |
+| **Backend**    | Java, Spring Boot / Spring MVC  |
+| **Database**   | MySQL                           |
+| **ORM**        | Hibernate / JPA                 |
+| **IDE**        | Eclipse                         |
+| **Build Tool** | Maven                           |
+| **Server**     | Apache Tomcat                   |
+
 
 ---
 
